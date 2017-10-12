@@ -28,7 +28,7 @@ module ROGC
 
       def build_wms_url(wms_url, request = 'GetCapabilities', version = "1.3.0", params = {})
         params.merge!({
-          'service' => 'wms',
+          'service' => 'WMS',
           'request' => request,
           'version' => version
         })
