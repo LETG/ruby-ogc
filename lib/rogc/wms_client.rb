@@ -22,8 +22,8 @@ module ROGC
     end
 
     class << self
-      def get_map(wms_url, layer_name, bbox = [], width = 128, height = 128, srs = 'EPSG:4326', params = {})
-        build_map_request(wms_url, layer_name, bbox, width, height, srs, params)
+      def get_map(wms_url, layer_name, default_style, bbox = [], width = 128, height = 128, srs = 'EPSG:4326', params = {})
+        build_map_request(wms_url, layer_name, default_style, bbox, width, height, srs, params)
       end
 
       def build_wms_url(wms_url, request = 'GetCapabilities', version = "1.3.0", params = {})
@@ -37,12 +37,12 @@ module ROGC
         "#{wms_url}?#{query_string}"
       end
 
-      def build_map_request(wms_url, layer_name, bbox = [], width = 128, height = 128, srs = 'EPSG:4326', params = {})
+      def build_map_request(wms_url, layer_name, default_style, bbox = [], width = 128, height = 128, srs = 'EPSG:4326', params = {})
         params.merge!({
           'format' => 'image/png',
           'transparent' => true,
           'layers' => layer_name,
-          'styles' => '',
+          'styles' => default_style,
           'height' => height,
           'width' => width,
           'crs'   => srs,
