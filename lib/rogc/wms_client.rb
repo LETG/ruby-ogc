@@ -49,7 +49,7 @@ module ROGC
           'bbox'  => bbox.any? ? bbox.join(',') : [11.544243804517265, -0.2895834470186168, 11.802380437565015, -0.0314468139708675].join(',')
         })
 
-        build_wms_url(wms_url, 'GetMap', '1.3.0', params)
+        build_wms_url(wms_url, 'GetMap', '1.1.1', params)
       end
     end
 
