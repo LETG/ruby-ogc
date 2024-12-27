@@ -46,6 +46,7 @@ module ROGC
           'height' => height,
           'width' => width,
           'crs'   => srs,
+          'srs'   => srs,
           'bbox'  => bbox.any? ? bbox.join(',') : [11.544243804517265, -0.2895834470186168, 11.802380437565015, -0.0314468139708675].join(',')
         })
 
